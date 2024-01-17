@@ -1,0 +1,13 @@
+# ----
+# Automatically Generated .dropboxignore file at Tue Jan 16 20:14:44 CST 2024
+# ----
+compiled.php
+config.php
+down
+events.scanned.php
+maintenance.php
+routes.php
+routes.scanned.php
+schedule-*
+services.json
+# ----
