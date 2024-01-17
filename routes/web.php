@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PacientesController;
 use App\Livewire\Auth\Login;
+use App\Livewire\Auth\Logout;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ Route::get('/pacientes', [PacientesController::class, 'view'])->name('pacientes'
 
 // Auth
 Route::get('/ingreso', Login::class)->name('ingreso');
+Route::get('/salir', Logout::class)->name('salir');

@@ -18,6 +18,7 @@
                         <v-col class="text-center">
                             <v-btn text href="/">Inicio</v-btn>
                             <v-btn text><strong>Pacientes</strong></v-btn>
+                            <v-btn text href="/salir"><strong>Salir</strong></v-btn>
                         </v-col>
                     </v-row>
                 </v-app-bar>

@@ -24,7 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pacientes">Pacientes</a>
                     </li>
-                    @livewire('auth.logout')
+                    <li class="nav-item">
+                        <a class="nav-link" href="/salir">Salir</a>
+                    </li>
                     @endauth
                     @guest
                     <li class="nav-item">
