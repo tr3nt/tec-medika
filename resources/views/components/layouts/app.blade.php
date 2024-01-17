@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tec-Medika</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    @vite('resources/css/app.css')
     @livewireStyles
 </head>
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-medika">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Tec-Medika</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,9 +25,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pacientes">Pacientes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/salir">Salir</a>
-                    </li>
+                    <!-- Botón de Salir -->
+                    @livewire('auth.logout')
+                    <!-------------------->
                     @endauth
                     @guest
                     <li class="nav-item">

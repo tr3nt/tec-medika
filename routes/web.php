@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\PacientesController;
 use App\Livewire\Auth\Login;
-use App\Livewire\Auth\Logout;
 use App\Livewire\Home;
+use App\Livewire\Patients;
+use App\Livewire\PatientsNew;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Home::class)->name('home');
+Route::get('/pacientes', Patients::class)->name('pacientes');
+Route::get('/pacientes/nuevo', PatientsNew::class)->name('pacientes-nuevo');
 
 // Auth
 Route::get('/ingreso', Login::class)->name('ingreso');
