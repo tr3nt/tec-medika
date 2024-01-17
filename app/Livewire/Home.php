@@ -2,10 +2,16 @@
 
 namespace App\Livewire;
 
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Home extends Component
 {
-    //
+    public string $name = 'Visitante';
+
+    public function mount()
+    {
+        if (Auth::check())
+            $this->name = auth()->user()->name;
+    }
 }

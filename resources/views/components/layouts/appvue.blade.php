@@ -16,7 +16,8 @@
                             <v-app-bar-title class="text-left ml-3">Tec-Medika</v-app-bar-title>
                         </v-col>
                         <v-col class="text-center">
-                            <v-btn text>Inicio</v-btn>
+                            <v-btn text href="/">Inicio</v-btn>
+                            <v-btn text><strong>Pacientes</strong></v-btn>
                         </v-col>
                     </v-row>
                 </v-app-bar>
