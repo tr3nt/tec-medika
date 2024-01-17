@@ -18,11 +18,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                        <a class="nav-link {{ request()->route()->getName() == 'home' ? 'active' : '' }}" href="/">Inicio</a>
                     </li>
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="/pacientes">Pacientes</a>
+                        <a class="nav-link {{ request()->route()->getName() == 'pacientes' ? 'active' : '' }}" href="/pacientes">Pacientes</a>
                     </li>
                     <!-- Botón de Salir -->
                     @livewire('auth.logout')

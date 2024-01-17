@@ -19,9 +19,12 @@ use App\Livewire\PatientsNew;
 */
 
 Route::get('/', Home::class)->name('home');
-Route::get('/pacientes', Patients::class)->name('pacientes');
-Route::get('/pacientes/nuevo', PatientsNew::class)->name('pacientes-nuevo');
-Route::get('/pacientes/editar/{paciente}', PatientsEdit::class)->name('pacientes-editar');
+
+Route::group(['prefix' => 'pacientes', 'middleware' => 'auth'], function () {
+    Route::get('/', Patients::class)->name('pacientes');
+    Route::get('/nuevo', PatientsNew::class)->name('pacientes-nuevo');
+    Route::get('/editar/{paciente}', PatientsEdit::class)->name('pacientes-editar');
+});
 
 // Auth
 Route::get('/ingreso', Login::class)->name('ingreso');

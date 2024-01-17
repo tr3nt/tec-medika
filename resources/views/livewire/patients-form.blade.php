@@ -22,6 +22,9 @@
             <div class="col col-12 d-grid mt-5">
                 <button type="submit" class="btn btn-primary">{{ $tituloBtn }}</button>
             </div>
+            <div class="col col-12 d-grid mt-2">
+                <a href="/pacientes" class="btn btn-secondary">Volver</a>
+            </div>
         </form>
     </div>
 </div>
