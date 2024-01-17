@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class AppController extends Controller
+class PacientesController extends Controller
 {
     public function view() : View
     {
