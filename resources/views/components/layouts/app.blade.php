@@ -21,7 +21,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Médicos</a>
+                        <a class="nav-link" href="#">Pacientes</a>
                     </li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@
     </header>
 
     <main>
-    @yield('content')
+    {{ $slot }}
     </main>
 
     @livewireScripts

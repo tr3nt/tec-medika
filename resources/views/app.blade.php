@@ -1,7 +1,5 @@
-@extends('components.layouts.app')
+@extends('components.layouts.appvue')
 
 @section('content')
-<div class="container mt-3">
-    {{ $slot }}
-</div>
+<app-component />
 @endsection
