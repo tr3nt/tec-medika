@@ -8,19 +8,26 @@
 </head>
 <body>
     <div id="app">
-        <header>
-        <nav>
-            Tec-Medika
-        </nav>
-        </header>
-
-        <main>
-        <div class="container mt-3" id="app">
-            @yield('content')
-        </div>
-        </main>
+        <v-app>
+            <header>
+                <v-app-bar app>
+                    <v-row align="center">
+                        <v-col cols="auto">
+                            <v-app-bar-title class="text-left ml-3">Tec-Medika</v-app-bar-title>
+                        </v-col>
+                        <v-col class="text-center">
+                            <v-btn text>Inicio</v-btn>
+                        </v-col>
+                    </v-row>
+                </v-app-bar>
+            </header>
+            <main>
+            <v-container class="mt-15">
+                <app-component />
+            </v-container>
+            </main>
+        </v-app>
     </div>
-
     @vite('resources/js/app.js')
 </body>
 </html>

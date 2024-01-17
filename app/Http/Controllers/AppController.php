@@ -9,6 +9,6 @@ class AppController extends Controller
 {
     public function index() : View
     {
-        return view('app');
+        return view('components.layouts.appvue');
     }
 }
