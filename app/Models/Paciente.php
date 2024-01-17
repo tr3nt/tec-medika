@@ -24,6 +24,18 @@ class Paciente extends Model
     ];
 
     /**
+     * Obtener Nombre Completo
+     * 
+     * @return string
+     */
+    public function getFullNameAttribute() : string
+    {
+        return "{$this->name} {$this->middle_name} {$this->last_name}";
+    }
+
+    /**
+     * Obtener el médico perteneciente a este paciente
+     * 
      * @return Collection
      */
     public function medico() : BelongsTo

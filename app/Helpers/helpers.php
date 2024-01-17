@@ -27,3 +27,31 @@ function setAlert(string $message, int $type = 0) : void
 
     session()->flash('message', $alert);
 }
+
+/**
+ * Reglas del Validador de Pacientes
+ * 
+ * @return array
+ */
+function getRules() : array
+{
+    return [
+        'form.name' => 'required|max:50',
+        'form.middle_name' => 'required|max:50',
+        'form.last_name' => 'required|max:50',
+    ];
+}
+
+/**
+ * Mensajes de Validator en español
+ * 
+ * @return array
+ */
+function getMessages() : array
+{
+    return [
+        'form.name.required' => 'Nombre obligatorio',
+        'form.middle_name.required' => 'Apellido paterno obligatorio',
+        'form.last_name.required' => 'Apellido materno obligatorio',
+    ];
+}

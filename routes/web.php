@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Livewire\Auth\Login;
 use App\Livewire\Home;
 use App\Livewire\Patients;
+use App\Livewire\PatientsEdit;
 use App\Livewire\PatientsNew;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class)->name('home');
 Route::get('/pacientes', Patients::class)->name('pacientes');
 Route::get('/pacientes/nuevo', PatientsNew::class)->name('pacientes-nuevo');
+Route::get('/pacientes/editar/{paciente}', PatientsEdit::class)->name('pacientes-editar');
 
 // Auth
 Route::get('/ingreso', Login::class)->name('ingreso');

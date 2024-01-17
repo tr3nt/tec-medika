@@ -1,6 +1,6 @@
 <div class="row mt-5">
     <div class="col col-6 mx-auto">
-        <form class="row" wire:submit.prevent="insert">
+        <form class="row" wire:submit.prevent="save">
             <div class="col col-12 text-center">
                 <h3>{{ $titulo }} Paciente</h3>
             </div>

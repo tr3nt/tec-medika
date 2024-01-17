@@ -7,18 +7,24 @@ use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class PatientsNew extends Component
+class PatientsEdit extends Component
 {
-    public string $titulo = 'Nuevo';
-    public string $tituloBtn = 'Crear';
+    public string $titulo = 'Editar';
+    public string $tituloBtn = 'Actualizar';
+    public Paciente $paciente;
     public array $form;
+
+    public function mount(Paciente $paciente)
+    {
+        $this->paciente = $paciente;
+        $this->form = $paciente->toArray();
+    }
 
     public function save() : Redirector
     {
         $this->validate(getRules());
-        $this->form['users_id'] = auth()->user()->id;
-        Paciente::create($this->form);
-        setAlert('Paciente creado correctamente');
+        $this->paciente->update($this->form);
+        setAlert("Paciente {$this->form['name']} actualizado correctamente.");
 
         return redirect(route('pacientes'));
     }
