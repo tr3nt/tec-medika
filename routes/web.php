@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Home::class)->name('home');
-Route::get('/pacientes', [PacientesController::class, 'view'])->name('pacientes');
 
 // Auth
 Route::get('/ingreso', Login::class)->name('ingreso');
-Route::get('/salir', Logout::class)->name('salir');

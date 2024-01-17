@@ -9,7 +9,7 @@ class Login extends Component
 {
     public array $form = [];
     protected array $rules = [
-        'form.email' => 'required|string|email|max:255',
+        'form.email' => 'required|string|email|max:50',
         'form.password' => 'required|string|min:8'
     ];
 
@@ -19,6 +19,17 @@ class Login extends Component
         if (Auth::attempt($this->form)) {
             return redirect(route('home'));
         }
-        session()->flash('message', 'Bad Credentials');
+        session()->flash('message', 'Usuario incorrecto');
+    }
+
+    // Mensajes de error en español
+    public function messages() : array
+    {
+        return [
+            'form.email.required' => 'Correo requerido',
+            'form.email.email' => 'Correo inválido',
+            'form.password.required' => 'Contraseña requerida',
+            'form.password.min' => 'La contraseña no debe ser menor a 8 caracters',
+        ];
     }
 }

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Logout extends Component
 {
-    public function mount()
+    public function logout()
     {
         Auth::logout();
         return redirect()->route('home');
