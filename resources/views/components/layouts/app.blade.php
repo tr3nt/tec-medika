@@ -58,6 +58,27 @@
 
     @livewireScripts
     @vite('resources/js/app.js')
-    @yield('js')
+    <script>
+        function generatePdf(paciente) {
+            const doc = new jsPDF();
+
+            // Razón social
+            doc.setFontSize(20);
+            doc.text('Tec-Medika', 10, 20);
+
+            // Dibujar linea a un lado de la razón social
+            const rectWidth = doc.internal.pageSize.getWidth() - 60;
+            doc.rect(60, 15, rectWidth, 5, 'F');
+
+            // Datos del paciente
+            doc.setFontSize(14);
+            doc.text(`Nombre:  ${paciente.name}`, 10, 40);
+            doc.text(`Apellido Paterno:  ${paciente.middle_name}`, 10, 50);
+            doc.text(`Apellido Materno:  ${paciente.last_name}`, 10, 60);
+
+            // Save the PDF or open in a new window
+            doc.save(`expediente-${paciente.name}-${paciente.middle_name}-${paciente.last_name}.pdf`);
+        }
+    </script>
 </body>
 </html>

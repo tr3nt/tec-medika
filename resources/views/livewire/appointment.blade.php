@@ -15,7 +15,7 @@
                     <td>{{ $cita->hour }}:00hrs</td>
                     <td>{{ $cita->paciente->fullName }}</td>
                     <td>
-                        <button class="btn btn-success btn-sm" onclick="generatePdf({{ json_encode($cita) }})">
+                        <button class="btn btn-danger btn-sm" onclick="generatePdf({{ json_encode($cita->paciente) }})">
                             <i class="bi bi-file-pdf-fill"></i>
                         </button>
                     </td>
@@ -60,28 +60,3 @@
         </div>
     </div>
 </div>
-
-@section('js')
-<script>
-    function generatePdf(cita) {
-        const doc = new jsPDF();
-
-        // Razón social
-        doc.setFontSize(20);
-        doc.text('Tec-Medika', 10, 20);
-
-        // Dibujar linea a un lado de la razón social
-        const rectWidth = doc.internal.pageSize.getWidth() - 60;
-        doc.rect(60, 15, rectWidth, 5, 'F');
-
-        // Datos del paciente
-        doc.setFontSize(14);
-        doc.text(`Nombre:  ${cita.paciente.name}`, 10, 40);
-        doc.text(`Apellido Paterno:  ${cita.paciente.middle_name}`, 10, 50);
-        doc.text(`Apellido Materno:  ${cita.paciente.last_name}`, 10, 60);
-
-        // Save the PDF or open in a new window
-        doc.save(`expediente-${cita.paciente.name}-${cita.paciente.middle_name}-${cita.paciente.last_name}.pdf`);
-    }
-</script>
-@endsection
