@@ -11,7 +11,7 @@ class Paciente extends Model
 {
     use HasFactory;
 
-    public $table = 'patients';
+    protected $table = 'patients';
 
     /**
      * @var array<int, string>

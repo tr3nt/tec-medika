@@ -9,7 +9,7 @@ class Cita extends Model
 {
     use HasFactory;
 
-    public $table = 'patient_appointment';
+    protected $table = 'patient_appointment';
 
     /**
      * @var array<int, string>

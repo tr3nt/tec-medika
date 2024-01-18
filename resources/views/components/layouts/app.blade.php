@@ -21,17 +21,25 @@
                         <a class="nav-link {{ request()->route()->getName() == 'home' ? 'active' : '' }}" href="/">Inicio</a>
                     </li>
                     @auth
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->route()->getName() == 'pacientes' ? 'active' : '' }}" href="/pacientes">Pacientes</a>
-                    </li>
-                    <!-- Botón de Salir -->
-                    @livewire('auth.logout')
-                    <!-------------------->
+                        <!-- Rol Admin -->
+                        @if(auth()->user()->role === 1)
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->route()->getName() == 'medicos' ? 'active' : '' }}" href="/medicos">Médicos</a>
+                        </li>
+                        <!-- Rol Médico -->
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->route()->getName() == 'pacientes' ? 'active' : '' }}" href="/pacientes">Pacientes</a>
+                        </li>
+                        @endif
+                        <!-- Botón de Salir -->
+                        @livewire('auth.logout')
+                        <!-------------------->
                     @endauth
                     @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ingreso">Ingreso</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ingreso">Ingreso</a>
+                        </li>
                     @endguest
                 </ul>
             </div>

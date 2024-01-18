@@ -9,7 +9,7 @@ class Especialidad extends Model
 {
     use HasFactory;
 
-    public $table = 'specialities';
+    protected $table = 'specialities';
 
     /**
      * @var array<int, string>

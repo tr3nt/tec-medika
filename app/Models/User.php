@@ -4,8 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -27,6 +28,31 @@ class User extends Authenticatable
         'role',
         'active',
     ];
+    protected $appends = [
+        'full_name',
+    ];
+
+    /**
+     * Obtener nombre completo
+     * 
+     * @return string
+     */
+    protected function fullName(): Attribute
+    {
+        return new Attribute(
+            get: fn () => "{$this->name} {$this->middle_name} {$this->last_name}",
+        );
+    }
+
+    /**
+     * Obtener especialidades
+     * 
+     * @return BelongsToMany
+     */
+    public function specialities() : BelongsToMany
+    {
+        return $this->belongsToMany(Especialidad::class, 'user_speciality', 'users_id', 'specialities_id');
+    }
 
     /**
      * @var array<int, string>
@@ -45,7 +71,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return Collection
+     * @return HasMany
      */
     public function pacientes() : HasMany
     {
