@@ -43,7 +43,20 @@ function getRules() : array
 }
 
 /**
- * Mensajes de Validator en español
+ * Reglas del Validador de citas
+ * 
+ * @return array
+ */
+function getAppRules() : array
+{
+    return [
+        'form.date' => 'required',
+        'form.hour' => 'required|integer|between:0,23',
+    ];
+}
+
+/**
+ * Mensajes de Validator de pacientes en español
  * 
  * @return array
  */
@@ -54,4 +67,44 @@ function getMessages() : array
         'form.middle_name.required' => 'Apellido paterno obligatorio',
         'form.last_name.required' => 'Apellido materno obligatorio',
     ];
+}
+
+/**
+ * Mensajes de Validator de citas en español
+ * 
+ * @return array
+ */
+function getAppMessages() : array
+{
+    return [
+        'form.date.required' => 'Fecha obligatoria',
+        'form.hour.required' => 'Hora obligatoria',
+        'form.hour.between' => 'Hora entre 0 y 23',
+    ];
+}
+
+/**
+ * Convierte una fecha MySQL al español
+ * 
+ * @param string|null $date
+ * @return string
+ */
+function getSpanishDate(string|null $date) : string
+{
+    $format = "/^\d{4}-\d{2}-\d{2}$/";
+    if (preg_match($format, $date)) {
+        $monthNames = array(
+            1 => 'ene',  2 => 'feb',  3 => 'mar',
+            4 => 'abr',  5 => 'may',  6 => 'jun',
+            7 => 'jul',  8 => 'ago',  9 => 'sep',
+            10 => 'oct', 11 => 'nov', 12 => 'dic'
+        );
+        $arrDate = explode('-', $date);
+        $day = $arrDate[2];
+        $month = intval($arrDate[1]);
+        $year = $arrDate[0];
+
+        return "{$day}/{$monthNames[$month]}/{$year}";
+    }
+    return '';
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AppointmentNew;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Auth\Login;
 use App\Livewire\Doctors;
@@ -33,4 +34,8 @@ Route::group(['prefix' => 'pacientes', 'middleware' => 'auth'], function () {
 Route::group(['prefix' => 'medicos', 'middleware' => 'admin'], function () {
     Route::get('/', Doctors::class)->name('medicos');
     Route::get('/editar/{id}', DoctorsEdit::class)->name('medicos-editar');
+});
+
+Route::group(['prefix' => 'citas', 'middleware' => 'auth'], function () {
+    Route::get('/paciente/{paciente}', AppointmentNew::class)->name('citas-nueva');
 });
