@@ -17,6 +17,13 @@
             <div class="col-12 mt-5 text-center">
                 <button type="submit" class="btn btn-secondary">Ingresar</button>
             </div>
+            <!--    ALERT    -->
+            @if(session('message'))
+                <div class="col col-12 mt-3">
+                    {!! session('message') !!}
+                </div>
+            @endif
+            <!----------------->
         </div>
     </div>
 </form>

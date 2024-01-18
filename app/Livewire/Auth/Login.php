@@ -17,6 +17,12 @@ class Login extends Component
     {
         $this->validate();
         if (Auth::attempt($this->form)) {
+            // Checar si el usuario está activo
+            if (auth()->user()->active === 0) {
+                Auth::logout();
+                setAlert('Tu usuario ha sido desactivado', 2);
+                return redirect(route('ingreso'));
+            }
             return redirect(route('home'));
         }
         session()->flash('message', 'Usuario incorrecto');
