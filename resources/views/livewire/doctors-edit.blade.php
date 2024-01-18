@@ -1,5 +1,5 @@
 <div class="row mt-5">
-    <div class="col col-6 mx-auto">
+    <form class="col col-6 mx-auto" wire:submit.prevent="save">
         <div class="row">
             <div class="col col-12 text-center">
                 <h3>Editar Médico</h3>
@@ -53,5 +53,5 @@
                 <a href="/medicos" class="btn btn-secondary">Volver</a>
             </div>
         </div>
-    </div>
+    </form>
 </div>

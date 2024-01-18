@@ -17,8 +17,9 @@
                     @foreach($patients as $patient)
                     <li class="list-group-item">
                         <a class="btn btn-primary btn-sm" href="/pacientes/editar/{{ $patient->id }}"><i class="bi bi-pencil-fill"></i></a>
-                        <a class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a>
+                        <a class="btn btn-success btn-sm" href="/citas/paciente/{{ $patient->id }}"><i class="bi bi-calendar3-fill"></i></a>
                         &nbsp; {{ $patient->fullName }}
+                        <a class="btn btn-danger btn-sm basura"><i class="bi bi-trash-fill"></i></a>
                     </li>
                     @endforeach
                 </ul>

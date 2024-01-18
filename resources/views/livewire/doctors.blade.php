@@ -7,9 +7,9 @@
             <div class="col col-12 mt-3">
                 <table class="table table-striped">
                     <thead>
-                    <tr>
-                        <th class="text-center">Activo</th>
-                        <th>Nombre</th>
+                    <tr class="text-center">
+                        <th>Activo</th>
+                        <th class="text-start">Nombre</th>
                         <th>Nutri</th>
                         <th>Gastro</th>
                         <th>Odonto</th>
@@ -22,11 +22,11 @@
                         // Obtener especialidades del médico
                         $specialities = array_column($medico->specialities->toArray(), 'id');
                     @endphp
-                        <tr>
-                            <td class="text-center">
+                        <tr class="text-center">
+                            <td>
                                 <input type="checkbox" class="form-check-input" {{ $medico->active ? 'checked' : '' }} disabled>
                             </td>
-                            <td>{{ $medico->full_name }}</td>
+                            <td class="text-start">{{ $medico->full_name }}</td>
                             <td>
                                 <input type="checkbox" class="form-check-input"
                                 {{ in_array(1, $specialities) ? 'checked' : '' }} disabled>
@@ -39,7 +39,7 @@
                                 <input type="checkbox" class="form-check-input"
                                 {{ in_array(3, $specialities) ? 'checked' : '' }} disabled>
                             </td>
-                            <td class="text-center">
+                            <td>
                                 <a class="btn btn-primary btn-sm" href="/medicos/editar/{{ $medico->id }}">
                                     <i class="bi bi-pencil-fill"></i>
                                 </a>
@@ -50,5 +50,12 @@
                 </table>
             </div>
         </div>
+        <!--    ALERT    -->
+        @if(session('message'))
+            <div class="col col-12 mt-3">
+                {!! session('message') !!}
+            </div>
+        @endif
+        <!----------------->
     </div>
 </div>
