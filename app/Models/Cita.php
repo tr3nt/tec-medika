@@ -26,4 +26,9 @@ class Cita extends Model
     {
         return $this->belongsTo(User::class, 'users_id');
     }
+
+    public function paciente() : BelongsTo
+    {
+        return $this->belongsTo(Paciente::class, 'patients_id');
+    }
 }

@@ -27,6 +27,13 @@
                 <input type="number" class="form-control" wire:model="form.hour" placeholder="0-23">
                 <button class="btn btn-primary">Guardar</button>
             </form>
+            <!--    ALERT    -->
+            @if(session('message'))
+                <div class="col col-12 mt-3">
+                    {!! session('message') !!}
+                </div>
+            @endif
+            <!----------------->
             <div class="col col-12">
                 @error('form.date') <span class="text-danger">{{ $message }}</span> @enderror <br>
                 @error('form.hour') <span class="text-danger">{{ $message }}</span> @enderror

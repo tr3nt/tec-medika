@@ -108,3 +108,15 @@ function getSpanishDate(string|null $date) : string
     }
     return '';
 }
+
+/**
+ * Obtener el nombre del mes en español
+ * 
+ * @return string
+ */
+function getMes(int $mes) : string
+{
+    return match($mes) {
+        1 => 'Enero',
+    };
+}
