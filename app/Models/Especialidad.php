@@ -10,6 +10,7 @@ class Especialidad extends Model
     use HasFactory;
 
     protected $table = 'specialities';
+    public $timestamps = false;
 
     /**
      * @var array<int, string>

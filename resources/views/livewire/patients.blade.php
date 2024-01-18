@@ -7,10 +7,10 @@
             <div class="col col-12 d-grid mt-3">
                 <a href="/pacientes/nuevo" class="btn btn-primary">Nuevo</a>
             </div>
-            <div class="col col-12 mt-3 input-group">
-                <input class="form-control" placeholder="Todos">
-                <button class="btn btn-secondary" wire:click="search">Buscar</button>
-            </div>
+            <form class="col col-12 mt-3 input-group" wire:submit.prevent="search">
+                <input class="form-control" placeholder="Todos" wire:model="buscaTexto">
+                <button class="btn btn-secondary" type="submit">Buscar</button>
+            </form>
             @if($patients)
             <div class="col col-12 mt-3">
                 <ul class="list-group">
@@ -22,6 +22,9 @@
                         <a class="btn btn-danger btn-sm basura"><i class="bi bi-trash-fill"></i></a>
                     </li>
                     @endforeach
+                    @if (count($patients) === 0)
+                    <li class="list-group-item text-center">No hay pacientes</li>
+                    @endif
                 </ul>
             </div>
             @endif

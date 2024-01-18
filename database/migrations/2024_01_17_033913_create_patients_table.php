@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('middle_name', 50);
             $table->string('last_name', 50);
-            $table->timestamps();
+            $table->softDeletes();
 
             // Llaves foráneas
             $table->foreign('users_id')->references('id')->on('users');

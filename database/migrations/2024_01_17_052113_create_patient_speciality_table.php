@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('patients_id');
             $table->unsignedBigInteger('specialities_id');
-            $table->timestamps();
 
             // Llaves foráneas
             $table->foreign('patients_id')->references('id')->on('patients');

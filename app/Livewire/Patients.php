@@ -13,13 +13,12 @@ class Patients extends Component
 
     public function search() : void
     {
-        if ($this->buscaTexto == '') {
-            $this->getPatients();
-        }
-    }
-
-    public function getPatients() : void
-    {
-        $this->patients = Paciente::all();
+        if ($this->buscaTexto == '')
+            $this->patients = Paciente::whereUsersId(auth()->user()->id)->get();
+        else
+            $this->patients = Paciente::where('name', 'LIKE', '%'.$this->buscaTexto.'%')
+                ->orWhere('middle_name', 'LIKE', '%'.$this->buscaTexto.'%')
+                ->orWhere('last_name', 'LIKE', '%'.$this->buscaTexto.'%')
+                ->get();
     }
 }
