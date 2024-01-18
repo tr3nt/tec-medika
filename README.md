@@ -1,10 +1,11 @@
 ## Tec-Medika
 
 ### Tecnologías usadas
-* Laravel 10
-* Livewire 3
-* Bootstrap 5
-* MySQL 8
+* Laravel 10 - Framework
+* Livewire 3 - Backend
+* Bootstrap 5 - Frontend
+* MySQL 8 - Persistencia
+* jsPDF 2 - Generador PDF
 
 ### Instalación
 
